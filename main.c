@@ -29,11 +29,11 @@ int main(){
                 sprintf(date_str,"%d/%d/%d\n",date.day,date.month,date.year);
                 // printf("%s",date_str);
                	sprintf(stringdata_task,"|nametask %s |datenewtask %s",&nametask, &date_str);
-               
+ 
                 FILE *fp;
                 fp = fopen(namefile_litstasks, "a+");
                 if (!fp){
-                	printf(stringdata_task,"Error na leitura de file tasks");
+                	printf("Error na leitura de file tasks");
                 	// continue;
                 	exit(1);
                 	}
@@ -47,7 +47,7 @@ int main(){
 				continue;
 			case 3:
 				continue;
-		}
-	}
+		};
+	};
 	return(0);
-}
+};
