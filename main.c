@@ -5,7 +5,10 @@
 #include "controlles.h"
 #include "getdatelocal.h"
 
+// #ifndef
+// 	#define struct Date {int day; int month; int year;};
 
+// #endif
 //gcc -o main main.c -ljson-c
 
 int main(){
@@ -23,31 +26,20 @@ int main(){
 		switch (opcaomenu0){
 			case 1:
 				printf("digite o nome da tarefa\n>> ");
-				scanf("%s",&nametask);
+				fflush(stdin);
+				gets(nametask);
 				printf("criando tarefa %s\n",&nametask);
                 date = getdatelocal();
                 sprintf(date_str,"%d/%d/%d\n",date.day,date.month,date.year);
                 // printf("%s",date_str);
-               	sprintf(stringdata_task,"|nametask %s |datenewtask %s",&nametask, &date_str);
- 
-                FILE *fp;
-                fp = fopen(namefile_litstasks, "a+");
-                if (!fp){
-                	printf("Error na leitura de file tasks");
-                	// continue;
-                	exit(1);
-                	}
-                	else{
-                		for(i=0;stringdata_task[i];i++) putc(stringdata_task[i],fp);
-                	}
-                fclose(fp);
-                // sscanf("%d/%d/%d\n",date.day,date.month,date.year);
-              
+               	sprintf(stringdata_task,"|nametask %s |datenewtask %s",nametask, date_str);
+ 				adicionar_task(stringdata_task, date_str, namefile_litstasks);
+ 				
 			case 2:
 				continue;
 			case 3:
 				continue;
+			};
 		};
-	};
 	return(0);
-};
+	};

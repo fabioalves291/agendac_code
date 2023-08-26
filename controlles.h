@@ -1,4 +1,4 @@
-
+#include <time.h>
 
 int menu0return(){
 	int resmenu;
@@ -21,7 +21,10 @@ int menu0return(){
 };
 // !!! o cliente vai resolver a diferença de json , para estrutura padrao. solicita o json ou cria o json e envia para a web.
 
-int adicionar_task(char stringdata_task[255], struct date, char namefile_litstasks[50]){
+// struct Date {int day; int month; int year;};
+
+
+int adicionar_task(char stringdata_task[], char date_str[70], char namefile_litstasks[50]){
 	int i;
 	FILE *fp;
 	fp = fopen(namefile_litstasks, "a+");
@@ -34,8 +37,9 @@ int adicionar_task(char stringdata_task[255], struct date, char namefile_litstas
 			for(i=0;stringdata_task[i];i++) putc(stringdata_task[i],fp);
 		};
 	fclose(fp);
+	// sscanf("%d/%d/%d\n",date.day,date.month,date.year);
 	return 0;
-};
+	};
 int verificartaskexistente(){
 
-} 
+	} 
