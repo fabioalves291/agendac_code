@@ -43,3 +43,7 @@ int adicionar_task(char stringdata_task[], char date_str[70], char namefile_lits
 int verificartaskexistente(){
 
 	} 
+
+int iniciartaks(){
+
+	}

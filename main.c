@@ -27,12 +27,13 @@ int main(){
 			case 1:
 				printf("digite o nome da tarefa\n>> ");
 				fflush(stdin);
+				// scanf("%s",nametask);
 				gets(nametask);
 				printf("criando tarefa %s\n",&nametask);
                 date = getdatelocal();
-                sprintf(date_str,"%d/%d/%d\n",date.day,date.month,date.year);
+                sprintf(date_str,"%d/%d/%d",date.day,date.month,date.year);
                 // printf("%s",date_str);
-               	sprintf(stringdata_task,"|nametask %s |datenewtask %s",nametask, date_str);
+               	sprintf(stringdata_task,"|nametask %s |datenewtask %s |timeseg 0\n",nametask, date_str);
  				adicionar_task(stringdata_task, date_str, namefile_litstasks);
  				
 			case 2:
