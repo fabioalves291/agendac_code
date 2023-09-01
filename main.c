@@ -17,7 +17,7 @@ int main(){
 	struct Date date;
 	char date_str[11];
 	char nametask[50];
-	char namefile_litstasks[] = "tasks";
+	char namefile_litstasks[] = "tasks.log";
 	char stringdata_task[255];
 	int i;
 	while (1){
@@ -29,18 +29,22 @@ int main(){
 				fflush(stdin);
 				// scanf("%s",nametask);
 				gets(nametask);
+				//verificar se existe a tarefa
 				printf("criando tarefa %s\n",&nametask);
                 date = getdatelocal();
                 sprintf(date_str,"%d/%d/%d",date.day,date.month,date.year);
                 // printf("%s",date_str);
+               	if (!verificartask_existente(namefile_litstasks, nametask )) break;
                	sprintf(stringdata_task,"|nametask %s |datenewtask %s |timeseg 0\n",nametask, date_str);
  				adicionar_task(stringdata_task, date_str, namefile_litstasks);
- 				
+ 				break;
 			case 2:
-				continue;
+				break;
 			case 3:
-				continue;
-			};
+				break;
+		continue;
 		};
-	return(0);
+	
 	};
+return(0);
+};

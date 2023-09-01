@@ -40,9 +40,25 @@ int adicionar_task(char stringdata_task[], char date_str[70], char namefile_lits
 	// sscanf("%d/%d/%d\n",date.day,date.month,date.year);
 	return 0;
 	};
-int verificartaskexistente(){
 
-	} 
+int verificartask_existente( char vnamefile_litstasks[], char nametaks[50]){
+	char variavel;
+	char value;
+	char c;char e;
+	printf("vericando se a task ja foi inserida\n");
+	FILE *fp;
+	fp = fopen(vnamefile_litstasks, "r");
+	if (!fp){
+		printf("Error na leitura de file tasks");
+		return 0;
+		};
+	while((c = getc(fp)) != EOF){
+		printf("%c",c);
+	};
+	fclose(fp);
+	printf("terminado verificação a verificação\n");
+	return 1;
+	};
 
 int iniciartaks(){
 
