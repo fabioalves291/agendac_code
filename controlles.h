@@ -46,26 +46,43 @@ int verificartask_existente( char vnamefile_litstasks[], char nametaks[50]){
 	char value;
 	char c;char e;
 	char totalline[255];
+	char stringline[255];
+	char cchar[2];
 	int cont;
+	int cont_linha;
+
 	printf("vericando se a task ja foi inserida\n");
 	FILE *fp;
 	fp = fopen(vnamefile_litstasks, "r");
 	if (!fp){
-		printf("Error na leitura de file tasks");
+		printf("Error na leitura de file tasks\n");
 		return 0;
 		};
 	cont = 0;
 	while((c = getc(fp)) != EOF){
 		printf("%c",c);
-		totalline[contt] = c;
-		if (c == "\n"){};
+		sprintf(cchar, "%c",c);
+		// printf("%c",cchar);
+		totalline[cont_linha] = c;
+		if (cchar == "\n"){
+			printf("final");
+			cont_linha = 0;
+		}
+		// printf("%s",totalline);
+		//if (c == "|"){}
+		cont_linha ++;
 		cont ++;
 	};
 	fclose(fp);
 	printf("terminado verificação a verificação\n");
 	return 1;
 	};
+int criarfiletask(char vnamefile_litstasks[]){
+	FILE *fp;
+	fp = fopen(vnamefile_litstasks, "w");
+	fclose(fp);
 
+}
 int iniciartaks(){
 
 	}

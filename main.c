@@ -34,7 +34,7 @@ int main(){
                 date = getdatelocal();
                 sprintf(date_str,"%d/%d/%d",date.day,date.month,date.year);
                 // printf("%s",date_str);
-               	if (!verificartask_existente(namefile_litstasks, nametask )) break;
+               	if (!verificartask_existente(namefile_litstasks, nametask )) printf("criando arquivo %s",namefile_litstasks);criarfiletask(namefile_litstasks);
                	sprintf(stringdata_task,"|nametask %s |datenewtask %s |timeseg 0\n",nametask, date_str);
  				adicionar_task(stringdata_task, date_str, namefile_litstasks);
  				break;
